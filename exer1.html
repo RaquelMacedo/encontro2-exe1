@@ -1,0 +1,35 @@
+<html>
+<head>
+ <title>Exercicio 1</title>
+ <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo
+=" crossorigin="anonymous"></script>
+</head>
+<body>
+ <p>Número: <input type="number" id="num"></p>
+ <button id="enviar">Enviar</button>
+ <p id="info"></p>
+ <script>
+$(document).ready(function(){
+ $("#enviar").click(function(){
+ var num=$("#num").val();
+ if(num!==''){
+ $.ajax({
+ type:'GET','"'
+ url:"http://numbersapi.com/"+num,
+ dataType:'text',
+ success: function(data){
+ $("#info").text(data);
+ },
+ error: function(){
+ $("#info").text("Erro ao consumir!");
+ }
+ });
+ }else{
+ $("#info").text("Informe um número!");
+ }
+ });
+ });
+ </script> 
+</body>
+</html
